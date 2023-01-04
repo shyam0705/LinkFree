@@ -8,6 +8,7 @@ export default async function handler(req, res) {
 	await connectMongo();
 
 	const getProfiles = await Profile.find({}).sort({ views: -1 });
+
 	// check for db results
 	if (getProfiles.length === 0) {
 		return res.status(404).json([]);
